@@ -1,1 +1,1 @@
-# SCT_UI_2
+A simple, responsive, and beginner-friendly Dark Mode News App using HTML, CSS and JavaScript in a single HTML file.
