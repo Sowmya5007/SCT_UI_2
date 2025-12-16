@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News App</title>
+
+<style>
+
+:root {
+  --bg: #f0f0f5;
+  --text: #1a1a1a;
+  --primary: #007bff;
+  --card: #ffffff;
+  --border: #cccccc;
+}
+
+
+body.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --primary: #bb86fc;
+  --card: #1e1e1e;
+  --border: #333333;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  transition: 0.3s;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.article h2 {
+  color: var(--primary);
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>📰 Daily News</h1>
+  <button id="themeBtn">Dark Mode</button>
+</header>
+
+<main>
+  <div class="article">
+    <h2>The Future of AI</h2>
+    <p>The future of AI refers to the evolving role of artificial intelligence in shaping how people live, work and interact with their daily lives — driven by advances in generative AI models, AI automation and ethical AI innovation.</p>
+  </div>
+
+  <div class="article">
+    <h2>Global Markets Update</h2>
+    <p>As of Nov. 28, 2025, the US equity market was trading at a 3% discount to a composite of our fair value estimates of the over 700 stocks we cover that trade on US exchanges.</p>
+  </div>
+</main>
+
+<script>
+const body = document.body;
+const button = document.getElementById("themeBtn");
+
+
+function setTheme(dark) {
+  body.classList.toggle("dark", dark);
+  button.textContent = dark ? "Light Mode" : "Dark Mode";
+  localStorage.setItem("theme", dark ? "dark" : "light");
+}
+
+
+setTheme(localStorage.getItem("theme") === "dark");
+
+
+button.onclick = () => {
+  setTheme(!body.classList.contains("dark"));
+};
+</script>
+</body>
+</html>
